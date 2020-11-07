@@ -1,0 +1,59 @@
+<app-sub-menu [subMenu]="subMenu"></app-sub-menu>
+
+
+<form class="status-form" [formGroup]="formGroup" (ngSubmit)="onSave()">
+  <mat-card class="card">
+    <mat-card-title>Set current status</mat-card-title>
+
+    <div>
+      <mat-form-field class="status-full-width" appearance="outline">
+        <mat-label>Yours status</mat-label>
+        <input matInput formControlName="status" placeholder="Please write your status">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-slide-toggle formControlName="isDaysRange" #isDaysRange>Status on range days {{isDaysRange.checked}}</mat-slide-toggle>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date from</mat-label>
+        <input matInput #dateFrom formControlName="dateFrom" [matDatepicker]="pickerFrom" [max]="dateTo.value">
+        <mat-datepicker-toggle matSuffix [for]="pickerFrom"></mat-datepicker-toggle>
+        <mat-datepicker #pickerFrom></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Choose a date to</mat-label>
+        <input matInput #dateTo formControlName="dateTo" [matDatepicker]="pickerTo" [min]="dateFrom.value">
+        <mat-datepicker-toggle matSuffix [for]="pickerTo"></mat-datepicker-toggle>
+        <mat-datepicker #pickerTo></mat-datepicker>
+      </mat-form-field>
+    </div>
+  </mat-card>
+
+  <mat-card class="card">
+    <mat-card-title>Set start hour on day</mat-card-title>
+
+    <app-day-start-hour formControlName="startHourOnMonday" dayLabel="Start on monday"></app-day-start-hour>
+    <app-day-start-hour formControlName="startHourOnTuesday" dayLabel="Start on tuesday"></app-day-start-hour>
+    <app-day-start-hour formControlName="startHourOnWednesday" dayLabel="Start on wednesday"></app-day-start-hour>
+    <app-day-start-hour formControlName="startHourOnThursday" dayLabel="Start on thursday"></app-day-start-hour>
+    <app-day-start-hour formControlName="startHourOnFriday" dayLabel="Start on friday"></app-day-start-hour>
+
+  </mat-card>
+
+  <mat-card class="card">
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Modified</mat-label>
+        <input matInput formControlName="modified" placeholder="" readonly>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary">Save Settings</button>
+  </mat-card>
+</form>

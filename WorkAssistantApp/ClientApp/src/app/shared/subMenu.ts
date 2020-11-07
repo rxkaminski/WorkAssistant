@@ -1,0 +1,4 @@
+interface subMenu {
+  links: subMenuLinks[];
+}
+

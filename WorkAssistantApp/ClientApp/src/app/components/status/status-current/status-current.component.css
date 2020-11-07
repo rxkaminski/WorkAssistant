@@ -1,0 +1,18 @@
+.status-form {
+  min-width: 150px;
+  width: 100%;
+}
+
+.status-full-width {
+  width: 100%;
+}
+
+.status-form mat-slide-toggle {
+  margin: 8px 0;
+  display: block;
+}
+
+mat-card {
+  margin: 10px 0;
+}
+

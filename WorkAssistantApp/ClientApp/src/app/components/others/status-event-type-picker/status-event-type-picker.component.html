@@ -1,0 +1,10 @@
+<form [formGroup]="statusEventTypeForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Choose type</mat-label>
+    <mat-select formControlName="id">
+      <mat-option *ngFor="let type of statusEventType" [value]="type.Id">
+        {{type.Description}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

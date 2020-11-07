@@ -1,0 +1,47 @@
+<app-sub-menu [subMenu]="subMenu"></app-sub-menu>
+
+<mat-card class="card">
+  <table mat-table [dataSource]="projects" class="mat-table">
+    <mat-card-title>Events</mat-card-title>
+
+    <!-- Nnumber -->
+    <ng-container matColumnDef="number">
+      <th mat-header-cell *matHeaderCellDef class="mat-column"> Number </th>
+      <td mat-cell *matCellDef="let element" class="mat-column"> {{element.Number}} </td>
+    </ng-container>
+
+    <!-- Title -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef class="mat-column"> Title </th>
+      <td mat-cell *matCellDef="let element" class="mat-column"> {{element.Title}} </td>
+    </ng-container>
+
+    <!-- Start -->
+    <ng-container matColumnDef="start">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-event"> Start </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-event"> {{element.Start}} </td>
+    </ng-container>
+
+    <!-- End -->
+    <ng-container matColumnDef="end">
+      <th mat-header-cell *matHeaderCellDef class="mat-column"> End </th>
+      <td mat-cell *matCellDef="let element" class="mat-column"> {{element.End}} </td>
+    </ng-container>
+
+
+    <!-- action -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-action"> Action </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-action">
+        <button mat-button class="mat-button-action" (click)="onEdit(element)">
+          <mat-icon matTooltip="Edit">create</mat-icon>
+        </button>
+        <button mat-button class="mat-button-action" (click)="onDelete(element)">
+          <mat-icon matTooltip="Delete">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

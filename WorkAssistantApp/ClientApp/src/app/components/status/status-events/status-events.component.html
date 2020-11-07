@@ -1,0 +1,58 @@
+<app-sub-menu [subMenu]="subMenu"></app-sub-menu>
+<mat-card class="card">
+  <table mat-table [dataSource]="statusEvents" class="mat-table">
+    <mat-card-title>Events</mat-card-title>
+
+    <!-- Date from -->
+    <ng-container matColumnDef="dateFrom">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-date"> Date from </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-date"> {{element.From}} </td>
+    </ng-container>
+
+    <!-- Date to -->
+    <ng-container matColumnDef="dateTo">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-date"> Date to </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-date"> {{element.To}} </td>
+    </ng-container>
+
+    <!-- Event type Column -->
+    <ng-container matColumnDef="eventType">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-event-type"> Event type </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-event-type"> {{element.Type.Description}} </td>
+    </ng-container>
+
+    <!-- project Column -->
+    <ng-container matColumnDef="project">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-project"> Project </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-project"><span *ngIf="element.Project" matTooltip="{{element.Project.Title}}"> {{element.Project.Number}} </span></td>
+    </ng-container>
+
+    <!-- description Column -->
+    <ng-container matColumnDef="description">
+      <th mat-header-cell *matHeaderCellDef> Description </th>
+      <td mat-cell *matCellDef="let element"> {{element.Description}} </td>
+    </ng-container>
+
+    <!-- action Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-action"> Action </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-action">
+          <button mat-button class="mat-button-action" (click)="onEdit(element)">
+            <mat-icon matTooltip="Edit">create</mat-icon>
+          </button>
+          <button mat-button class="mat-button-action" (click)="onDelete(element)">
+            <mat-icon matTooltip="Delete">delete</mat-icon>
+          </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <div>
+    <button mat-button class="mat-button-action" (click)="onAdd()">
+      <mat-icon matTooltip="Add">add new</mat-icon>
+    </button>
+  </div>
+</mat-card>

@@ -1,0 +1,10 @@
+<form [formGroup]="startHourForm">
+  <mat-form-field appearance="outline">
+    <mat-label>{{dayLabel}}</mat-label>
+    <mat-select formControlName="id">
+      <mat-option *ngFor="let hour of startHours" [value]="hour.Id">
+        {{hour}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

@@ -1,0 +1,19 @@
+<mat-card class="statuses-card">
+  <mat-card-header>
+    <mat-card-title>{{data.LastName}} {{data.FirstName}}</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <mat-list>
+      <mat-list-item><mat-icon aria-hidden="true" aria-label="Email">email</mat-icon> <a href="mailto:{{data.Email}}">{{data.Email}}</a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item><mat-icon aria-hidden="true" aria-label="Phone">call</mat-icon> <a href="tel:{{data.Phone}}">{{data.Phone}}</a></mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>Start hour on Monday: {{data.StartHourOnMondayHour}}</mat-list-item>
+      <mat-list-item>Start hour on Tuesday: {{data.StartHourOnTuesdayHour}}</mat-list-item>
+      <mat-list-item>Start hour on Wednesday: {{data.StartHourOnWednesdayHour}}</mat-list-item>
+      <mat-list-item>Start hour on Thursday: {{data.StartHourOnThursdayHour}}</mat-list-item>
+      <mat-list-item>Start hour on Friday: {{data.StartHourOnFridayHour}}</mat-list-item>
+
+    </mat-list>
+  </mat-card-content>
+</mat-card>

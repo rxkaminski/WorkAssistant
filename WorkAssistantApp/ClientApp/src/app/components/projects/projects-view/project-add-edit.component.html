@@ -1,0 +1,63 @@
+<h1 mat-dialog-title>{{title}}</h1>
+<form class="status-form" [formGroup]="formGroup">
+
+  <div mat-dialog-content>
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Number</mat-label>
+        <input matInput formControlName="number" placeholder="">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title" placeholder="">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Description</mat-label>
+        <input matInput formControlName="description" placeholder="">
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>Start</mat-label>
+        <input matInput #dateStart formControlName="start" [matDatepicker]="pickerStart">
+        <mat-datepicker-toggle matSuffix [for]="pickerStart"></mat-datepicker-toggle>
+        <mat-datepicker #pickerStart></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="outline">
+        <mat-label>End</mat-label>
+        <input matInput #dateEnd formControlName="end" [matDatepicker]="pickerEnd">
+        <mat-datepicker-toggle matSuffix [for]="pickerEnd"></mat-datepicker-toggle>
+        <mat-datepicker #pickerEnd></mat-datepicker>
+      </mat-form-field>
+    </div>
+
+    <app-user-picker formControlName="projectManager"></app-user-picker>
+
+    <div *ngIf="isEdit">
+      <mat-form-field appearance="outline">
+        <mat-label>Created</mat-label>
+        <input matInput formControlName="created" placeholder="" readonly>
+      </mat-form-field>
+    </div>
+    <div *ngIf="isEdit">
+      <mat-form-field appearance="outline">
+        <mat-label>Modified</mat-label>
+        <input matInput formControlName="modified" placeholder="" readonly>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="onSave()" [mat-dialog-close]="true">{{actionButtonText}}</button>
+    <button mat-button (click)="onNoClick()" mat-dialog-close>Cancel</button>
+  </div>
+</form>

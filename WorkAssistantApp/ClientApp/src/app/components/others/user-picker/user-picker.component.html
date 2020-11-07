@@ -1,0 +1,10 @@
+<form [formGroup]="userForm">
+  <mat-form-field appearance="outline">
+    <mat-label>Choose user</mat-label>
+    <mat-select formControlName="id">
+      <mat-option *ngFor="let user of users" [value]="user.Id">
+        {{user}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+</form>

@@ -1,0 +1,19 @@
+
+  <table *ngIf="tableData" mat-table [dataSource]="tableData" class="mat-table">
+    <mat-card-title>Events</mat-card-title>
+
+    <!-- Number -->
+    <ng-container matColumnDef="number">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-date"> Number </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-date"> {{element.Number}} </td>
+    </ng-container>
+
+    <!-- Title -->
+    <ng-container matColumnDef="title">
+      <th mat-header-cell *matHeaderCellDef class="mat-column-date"> Title </th>
+      <td mat-cell *matCellDef="let element" class="mat-column-date"> {{element.Title}} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>

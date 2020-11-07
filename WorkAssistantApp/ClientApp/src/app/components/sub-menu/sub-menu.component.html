@@ -1,0 +1,11 @@
+<mat-card>
+  <div class="button-row">
+    <a *ngFor="let link of subMenu.links"
+       mat-raised-button
+       [routerLink]="link.ahref"
+       [color]="link.isActive ? 'primary' : null">
+      {{link.linkName}}
+    </a>
+  </div>
+</mat-card>
+

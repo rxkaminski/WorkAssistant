@@ -1,0 +1,25 @@
+<app-sub-menu [subMenu]="subMenu"></app-sub-menu>
+
+
+<mat-accordion>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Managed project
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-project-short-table [tableUrl]="mangmendProjectsUrl"></app-project-short-table>
+
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Project
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+
+    <app-project-short-table [tableUrl]="projectsUrl"></app-project-short-table>
+
+  </mat-expansion-panel>
+</mat-accordion>
